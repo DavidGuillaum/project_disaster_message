@@ -36,11 +36,11 @@ In addition This will require pip installation of the following:
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database<br>
-        $ python data\process_data.py data\messages.csv data\categories.csv data\disaster_response.db'
+        'python data\process_data.py data\messages.csv data\categories.csv data\disaster_response.db'
     - To run ML pipeline that trains classifier and saves<br>
-        $ python models\train_classifier.py data\disaster_response.db models\model.pkl'
+        'python models\train_classifier.py data\disaster_response.db models\model.pkl'
     - To run the dashboard<br>
-        $ python app\run.py'
+        'python app\run.py'
 
 
 ## Motivation and goals
