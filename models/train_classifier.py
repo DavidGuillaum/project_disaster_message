@@ -45,9 +45,11 @@ def build_model():
     pipeline = Pipeline([
     ('vect', CountVectorizer(tokenizer=tokenize)),
     ('tfidf', TfidfTransformer()),
-    ('clf', MultiOutputClassifier(RandomForestClassifier()))
+    ('clf', MultiOutputClassifier(RandomForestClassifier(verbose=3)))
     ])
     
+    #I dont do the GridSearch bc it take a lot of time and I already did it in ML_Pipeline.ipynb
+    #and the best was with a number of trees of 100
     #parameters = {
     #number of trees
     #'clf__estimator__n_estimators' : [50, 100]#,
