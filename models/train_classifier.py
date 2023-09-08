@@ -29,6 +29,7 @@ def load_data(database_filepath):
     return X,Y, category_names
 
 def tokenize(text):
+    #get ridde of ().,'#!?, -- : 
     text = re.sub(r'[()\.\;\'\#\!\?\,\--\:\[\]]', '', text)
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
@@ -45,6 +46,7 @@ def build_model():
     pipeline = Pipeline([
     ('vect', CountVectorizer(tokenizer=tokenize)),
     ('tfidf', TfidfTransformer()),
+    #verbose is usefull to see if it's really running
     ('clf', MultiOutputClassifier(RandomForestClassifier(verbose=3)))
     ])
     

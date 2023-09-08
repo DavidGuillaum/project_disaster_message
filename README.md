@@ -32,6 +32,8 @@ In addition This will require pip installation of the following:
      pip install SQLAlchemy
      pip install sys
      pip install scikit-learn
+     pip install plotly
+     pip install flask
 
 
 1. Run the following commands in the project's root directory to set up your database and model.

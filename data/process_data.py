@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 def load_data(messages_filepath, categories_filepath):
     df_messages = pd.read_csv(messages_filepath)
     df_categories = pd.read_csv(categories_filepath)
-    #merging
+    #merging on left so it will keep all messages 
     df = df_messages.merge(df_categories, how="left", on ="id")
     return df
 
