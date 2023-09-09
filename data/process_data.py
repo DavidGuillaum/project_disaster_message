@@ -18,6 +18,8 @@ def clean_data(df):
     #renaming categories
     category_colnames = list(map(lambda x: x[:-2], row))
     categories.columns = category_colnames
+    #get rid of related-2 values
+    categories["related"] = categories["related"].replace('related-2', 'related-1')
     #convert categories values to 0 or 1
     for column in categories:
         categories[column] = categories[column].str[-1]

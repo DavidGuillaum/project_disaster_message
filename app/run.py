@@ -1,5 +1,6 @@
 import json
 import plotly
+import plotly.express as px
 import pandas as pd
 
 from nltk.stem import WordNetLemmatizer
@@ -43,6 +44,7 @@ def index():
     # as it binary variable, I just have to sum up the whole column
     genre_counts = df[col_name].sum()
     
+    #graph 1 with distribution of messages by genres and graph 2
     graphs = [
         {
             'data': [
@@ -61,9 +63,31 @@ def index():
                     'title': "Genre"
                 }
             }
-        }
+        },
+        {
+            'data': [
+                Bar(
+                    x=df["floods"],
+                    y=df["death"]
+                )
+            ],
+
+            'layout': {
+                'title': 'Death',
+                'yaxis': {
+                    'title': "Deaths"
+                },
+                'xaxis': {
+                    'title': "Floods"
+                }
+            }
+        }      
     ]
+
     
+
+
+
     # encode plotly graphs in JSON
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
     graphJSON = json.dumps(graphs, cls=plotly.utils.PlotlyJSONEncoder)
